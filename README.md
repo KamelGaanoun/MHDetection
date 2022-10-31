@@ -1,7 +1,7 @@
-# MAHADDAT: MAwdu HADith DATaset
+# Mawdu Hadith Detection
 
 # What is the repository is about?
-This is the repository accompanying our paper Fabricated Hadith Detection: A Novel Matn-Based Approach with Transformer Language Models. In the paper, we introduce:
+This is the repository accompanying our paper [Fabricated Hadith Detection: A Novel Matn-Based Approach with Transformer Language Models](https://ieeexplore.ieee.org/abstract/document/9931123). In the paper, we introduce:
 
 - A Matn-based Mawdu (Fabricated) Hadith (MH) detection system
 - Two new datasets, called NAH Plus and MAHADDAT
@@ -20,56 +20,81 @@ This repository describes the datasets creation process and gives their content 
 
 ## Description
 
-This dataset contains **19,806** news articles written in Moroccan Arabic dialect along with their titles. The articles were crawled from [Goud.ma](http://www.goud.ma) website between 01/01/2018 and 12/31/2020. 
-The articles are written mainly in Moroccan Arabic dialect (Darija) but some of them contain Modern Standard Arabic (MSA) passages. All the titles are written in Darija. 
-The following table summarize some tatistics on the MArSum Dataset.
+Our final dataset relies on [LK](https://github.com/ShathaTm/LK-Hadith-Corpus) and [NAH](https://github.com/TaghreedT/NAH-Corpus) corpora. We adopt a 3-step process as described in the figure below. **NAH Plus** is an enhanced version of NAH corpus, obtained after cleaning and scrapping steps. This corpus contains a total of 3,660 non-authentic Hadiths. We filter the NAH Plus dataset to extract the MHs, and the same process was applied to the LK corpus, which contains 29 MHs. In addition, we add the 366 MHs scraped from [Dorar](https://Dorar.net) and delete any duplicates. As a result, we create a new corpus dedicated to MHs, with a total of 2,452 Hadiths. We call this dataset **MA**wdu **HAD**ith **DAT**aset or **MAHADDAT**.
+
+<p align="center">
+  <img src=GA.jpg />
+</p>
+
+
+The following table summarizes some statistics on the final dataset.
 
 
 <table class="tg">
 <thead>
   <tr>
-    <th class="tg-0pky" rowspan="2">Size</th>
-    <th class="tg-0pky" colspan="3">Titles length</th>
-    <th class="tg-0pky" colspan="3">Articles length</th>
+    <th class="tg-fymr" colspan="2" rowspan="2">Number of Hadiths</th>
+    <th class="tg-fymr" colspan="3">Number of characters</th>
+    <th class="tg-fymr" colspan="3">Number of words</th>
   </tr>
   <tr>
-    <th class="tg-lqy6">Min.</th>
-    <th class="tg-lqy6">Max.</th>
-    <th class="tg-lqy6">Avg.</th>
-    <th class="tg-lqy6">Min.</th>
-    <th class="tg-lqy6">Max.</th>
-    <th class="tg-0lax">Avg.</th>
+    <th class="tg-fymr">Including diacritics</th>
+    <th class="tg-fymr">Excluding diacritics</th>
+    <th class="tg-fymr">Excluding diacritics<br>and punctuation</th>
+    <th class="tg-fymr">Total</th>
+    <th class="tg-fymr">Avg.</th>
+    <th class="tg-fymr">Max.</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td class="tg-dvpl">19,806</td>
-    <td class="tg-dvpl">2</td>
-    <td class="tg-dvpl">74</td>
-    <td class="tg-dvpl">14.6</td>
-    <td class="tg-dvpl">30</td>
-    <td class="tg-dvpl">2964</td>
-    <td class="tg-0pky">140.7</td>
+    <td class="tg-fymr">Sahih</td>
+    <td class="tg-0lax">24,109</td>
+    <td class="tg-0pky">7,937,516</td>
+    <td class="tg-0pky">5,025,378</td>
+    <td class="tg-0pky">4,969,969</td>
+    <td class="tg-0pky">1,016,116</td>
+    <td class="tg-0pky">~42</td>
+    <td class="tg-0pky">1,698</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Mawdu</td>
+    <td class="tg-0lax">2,452</td>
+    <td class="tg-0pky">576,345</td>
+    <td class="tg-0pky">542,933</td>
+    <td class="tg-0pky">528,824</td>
+    <td class="tg-0pky">109,836</td>
+    <td class="tg-0pky">~45</td>
+    <td class="tg-0pky">5,608</td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Total</td>
+    <td class="tg-0lax">26,561</td>
+    <td class="tg-0pky">8,513,862</td>
+    <td class="tg-0pky">5,568,312</td>
+    <td class="tg-0pky">5,498,794</td>
+    <td class="tg-0pky">1,125,952</td>
+    <td class="tg-0pky">~42</td>
+    <td class="tg-0pky">5,608</td>
   </tr>
 </tbody>
 </table>
 
-The following figure describes the creation process of MArSum:
 
-![alt text](MArSum_schema_Color1.png)
+
+
 
 You may refer to our paper, cited below, for more details on this process.
 
 ## Dataset
 
-The dataset is split into Train/Test subsets using a 90/10 split strategy. Both subsets are available for direct donwload.
+The final dataset is split into Train/Dev/Test subsets using a 80/10/10 split strategy. These partitions along with NAH Plus and Mahaddat are available for direct donwload in the appropriate folders of this repository.
                       
 ## Citation
 
 Please cite the following paper if you decide to use the dataset:
 
-    Gaanoun, K., Naira, A. M., Allak, A., & Benelallam, I. (2022). Automatic Text Summarization for Moroccan Arabic Dialect
-    Using an Artificial Intelligence Approach. In International Conference on Business Intelligence (pp. 158-177). Springer, Cham.
+    Gaanoun, Kamel, and Mohammed Alsuhaibani. "Fabricated Hadith Detection: A Novel Matn-Based Approach with Transformer Language Models." IEEE Access (2022).
     
 ## License
-The dataset is distributed under the CC BY 4.0 license.
+The datasets are distributed under the CC BY 4.0 license.
