@@ -1,6 +1,6 @@
 # Mawdu Hadith Detection
 
-# What is the repository is about?
+# What is the repository about?
 This is the repository accompanying our paper [Fabricated Hadith Detection: A Novel Matn-Based Approach with Transformer Language Models](https://ieeexplore.ieee.org/abstract/document/9931123). In the paper, we introduce:
 
 - A Matn-based Mawdu (Fabricated) Hadith (MH) detection system
